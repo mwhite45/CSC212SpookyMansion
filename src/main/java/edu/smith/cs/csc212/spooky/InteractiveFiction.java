@@ -37,6 +37,9 @@ public class InteractiveFiction {
 			if (here.isTerminalState()) {
 				break;
 			}
+			
+			//call visit() method
+			here.visit();
 
 			// Show a user the ways out of this place.
 			List<Exit> exits = here.getVisibleExits();
@@ -57,12 +60,16 @@ public class InteractiveFiction {
 			// Do not uppercase action -- I have lowercased it.
 			String action = words.get(0).toLowerCase().trim();
 
-			if (action.equals("quit")) {
+			if (action.equals("quit") || action.equals("escape") || action.equals("q")) {
 				if (input.confirm("Are you sure you want to quit?")) {
 					return place;
 				} else {
 					continue;
 				}
+			}
+			if (action.equals("help")) {
+				System.out.println("Please input the # of the room or quit game [quit/escape/q]");
+					break;
 			}
 
 			// From here on out, what they typed better be a number!

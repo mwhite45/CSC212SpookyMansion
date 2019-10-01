@@ -26,7 +26,10 @@ public class Place {
 	 * Whether reaching this place ends the game.
 	 */
 	private boolean terminal;
-	
+	/**
+	 * Whether the place has been previously visited.
+	 */
+	public boolean visited;
 	/**
 	 * Internal only constructor for Place. Use {@link #create(String, String)} or {@link #terminal(String, String)} instead.
 	 * @param id - the internal id of this place.
@@ -126,6 +129,11 @@ public class Place {
 			return this.id.equals(((Place) other).id);
 		}
 		return false;
+	}
+	
+	//update this flag from false to true in a visit() method
+	public void visit() {
+		this.visited = true;
 	}
 	
 }
