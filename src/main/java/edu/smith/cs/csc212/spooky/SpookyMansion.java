@@ -24,10 +24,6 @@ public class SpookyMansion implements GameWorld {
 	 */
 	public SpookyMansion() {
 		
-		//error
-		if (this.visited = true) {
-			System.out.println("This place feels familiar.");
-		}
 		
 		Place entranceHall = insert(
 				Place.create("entranceHall", "You are in the grand entrance hall of a large building.\n"

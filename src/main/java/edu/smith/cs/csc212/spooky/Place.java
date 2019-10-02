@@ -31,6 +31,10 @@ public class Place {
 	 */
 	public boolean visited;
 	/**
+	 * description for counter 
+	 */
+	private int counter;
+	/**
 	 * Internal only constructor for Place. Use {@link #create(String, String)} or {@link #terminal(String, String)} instead.
 	 * @param id - the internal id of this place.
 	 * @param description - the user-facing description of the place.
@@ -41,6 +45,8 @@ public class Place {
 		this.description = description;
 		this.exits = new ArrayList<>();
 		this.terminal = terminal;
+		this.visited = false;
+		this.counter = 0;
 	}
 	
 	/**
@@ -133,7 +139,13 @@ public class Place {
 	
 	//update this flag from false to true in a visit() method
 	public void visit() {
-		this.visited = true;
+		//create a counter that tracks initial or subsequent visits
+		counter += 1;
+		if (counter >= 2) {
+			this.visited = true;
+		}
+		
+		
 	}
 	
 }

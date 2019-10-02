@@ -16,6 +16,7 @@ public class Exit {
 	 * How do we identify the Place that this is going.
 	 */
 	private String target;
+
 	
 	/**
 	 * Create a new Exit.
@@ -74,6 +75,11 @@ public class Exit {
 			Exit rhs = (Exit) other;
 			return this.target.equals(rhs.target) && this.description.equals(rhs.description); 
 		}
+		return false;
+	}
+	
+	//
+	public boolean isSecret() {
 		return false;
 	}
 }

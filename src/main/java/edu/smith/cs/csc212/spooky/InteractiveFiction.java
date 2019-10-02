@@ -40,6 +40,7 @@ public class InteractiveFiction {
 			
 			//call visit() method
 			here.visit();
+			System.out.println("Value for here.visited(): " + here.visited);
 
 			// Show a user the ways out of this place.
 			List<Exit> exits = here.getVisibleExits();
@@ -70,6 +71,13 @@ public class InteractiveFiction {
 			if (action.equals("help")) {
 				System.out.println("Please input the # of the room or quit game [quit/escape/q]");
 					break;
+			}
+			
+			if (action.equals("search")) {
+				if (place.contains(SecretExit)) {
+					thisisSecret = true;
+					
+				}
 			}
 
 			// From here on out, what they typed better be a number!
