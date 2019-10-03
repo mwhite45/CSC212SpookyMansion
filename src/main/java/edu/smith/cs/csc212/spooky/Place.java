@@ -80,6 +80,16 @@ public class Place {
 	public String getDescription() {
 		return this.description;
 	}
+	/**
+	 * making search method
+	 */
+	public void search() {
+		for (Exit w: exits) {
+			if(w.isSecret()) {
+				((SecretExit)w).findSecretExit();
+			}
+		}
+	}
 
 	/**
 	 * Get a view of the exits from this Place, for navigation.

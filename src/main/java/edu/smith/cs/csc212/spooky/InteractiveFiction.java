@@ -74,11 +74,10 @@ public class InteractiveFiction {
 			}
 			
 			if (action.equals("search")) {
-				if (place.contains(SecretExit)) {
-					thisisSecret = true;
+				here.search();
+				continue;
 					
 				}
-			}
 
 			// From here on out, what they typed better be a number!
 			Integer exitNum = null;

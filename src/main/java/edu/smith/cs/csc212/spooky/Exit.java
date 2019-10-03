@@ -78,8 +78,19 @@ public class Exit {
 		return false;
 	}
 	
-	//
+	//override all three methods
+	
+	//"Some exits are secret, and not shown at first"
 	public boolean isSecret() {
 		return false;
 	}
+	
+	public void search() {
+		//that's all.
+	}
+	
+	public boolean canOpen(List<String> stuff) {
+		return true;
+	}
+	
 }
