@@ -105,14 +105,13 @@ public class InteractiveFiction {
 						//System.out.println(i);
 						playerItems.add(i);
 				}
-					
 				here.getItems().clear();
-			}
+				}
 			}
 			
 			if (action.equals("stuff")) {
 				if (!playerItems.isEmpty()) {
-					System.out.println(playerItems);
+					System.out.println("These are your items: " + playerItems);
 				} else {
 					System.out.println("You have nothing.");
 				}
