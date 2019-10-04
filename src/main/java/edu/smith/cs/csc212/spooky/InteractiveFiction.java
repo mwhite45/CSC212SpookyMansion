@@ -126,7 +126,7 @@ public class InteractiveFiction {
 				} else {
 					System.out.println("You have nothing.");
 				}
-				
+				continue;
 			}
 			
 
