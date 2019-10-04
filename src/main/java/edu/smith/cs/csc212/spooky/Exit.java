@@ -79,19 +79,23 @@ public class Exit {
 		return false;
 	}
 	
-	//override all three methods
-	
-	//"Some exits are secret, and not shown at first"
+	//override all three methods in child classes
+	/**
+	 * Exits can be secret and not displayed at first
+	 * @return
+	 */
 	public boolean isSecret() {
+		//A regular exit is not secret
 		return false;
 	}
 	
 	public boolean canOpen(List<String> stuff) {
+		//therefore regular exits can be opened
 		return true;
 	}
 
 	public void search() {
-		// I'm not even a secret
+		// I'm not a secret
 	}
 	
 }

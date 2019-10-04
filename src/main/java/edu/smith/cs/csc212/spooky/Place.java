@@ -117,9 +117,9 @@ public class Place {
 		}
 	
 	//method that returns list of player items.
-	public List<String> getPlayerItems() {
-		return this.pl
-	}
+	//public List<String> getPlayerItems() {
+	//	return this.pl
+	//}
 	
 	
 	/**

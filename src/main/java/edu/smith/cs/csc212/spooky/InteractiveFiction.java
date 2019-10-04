@@ -35,8 +35,8 @@ public class InteractiveFiction {
 			System.out.println();
 			System.out.println("... --- ...");
 			System.out.println(here.getDescription());
-			
 
+			
 			//print out stuff 
 			System.out.println("Items in this location: " + here.getItems());
 			
@@ -45,17 +45,19 @@ public class InteractiveFiction {
 				break;
 			}
 			
-			//call visit() method
+			//see about refining
+			//call visit() method 
 			here.visit();
 			
+			//remove at end
 			//debugging print statement
 			System.out.println("Value for here.visited(): " + here.visited);
 			
+			//print if place has been visited before in same session of game
 			if (here.visited == true) {
 				System.out.println("This place feels familiar...");
 			}
 			
-
 			// Show a user the ways out of this place.
 			List<Exit> exits = here.getVisibleExits();
 
@@ -74,7 +76,9 @@ public class InteractiveFiction {
 			// Get the word they typed as lowercase, and no spaces.
 			// Do not uppercase action -- I have lowercased it.
 			String action = words.get(0).toLowerCase().trim();
-
+			
+			
+			//Allow user to quit the game by entering specific keywords.
 			if (action.equals("quit") || action.equals("escape") || action.equals("q")) {
 				if (input.confirm("Are you sure you want to quit?")) {
 					return place;
@@ -82,18 +86,21 @@ public class InteractiveFiction {
 					continue;
 				}
 			}
+			//Allow user to ask for help and see instructions of game.
 			if (action.equals("help")) {
 				System.out.println("Please input the # of the room or quit game [quit/escape/q]");
 					continue;
 			}
-			
+			//Allow user to search for SecretExit(s) in current location.
 			if (action.equals("search")) {
 				here.search();
 				continue;
 					
 				}
+			//Allow user to take all items present in room (if present). 
 			if (action.equals("take")) {
 				
+				//If location doesn't have any items.
 				if (here.getItems().isEmpty()) {
 					System.out.println("Sorry, there are no items in this location.");
 					continue;
@@ -101,10 +108,14 @@ public class InteractiveFiction {
 				} else {
 					
 					System.out.println("You've taken the items.");
-					for (String i : here.getItems()) {
-						//System.out.println(i);
+					for (String i : here.getItems()) { //for every item in our list of items in that room
+						//System.out.println(i); ?
+						//add to list of player's items)
 						playerItems.add(i);
 				}
+				//referenced from https://www.tutorialspoint.com/java/util/arraylist_clear.htm
+					
+				//clears entire list of items in that room
 				here.getItems().clear();
 				}
 			}
