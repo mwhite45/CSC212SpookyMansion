@@ -2,14 +2,16 @@ package edu.smith.cs.csc212.spooky;
 
 import java.util.List;
 
-public class LockedExit extends Exit {
+public class LockedExit extends Exit { //make key as paramegter
 	
 	boolean isSecret;
+	public String key;
 	
 	public LockedExit(String target, String description) {
 		super(target, description);
 		
 		this.isSecret = false;
+		this.key = "key";
 	}
 	
 	public boolean isSecret() {
@@ -21,7 +23,14 @@ public class LockedExit extends Exit {
 	}
 	
 	public boolean canOpen(List<String> stuff) {
-		return false;
+		for (here.getItems() : here.get) {
+			if (this.key.equals()) {
+				
+			}
+		} else {
+			return false;
+		}
+				
 	}
 
 }

@@ -116,6 +116,12 @@ public class Place {
 			return this.items;
 		}
 	
+	//method that returns list of player items.
+	public List<String> getPlayerItems() {
+		return this.pl
+	}
+	
+	
 	/**
 	 * This is a terminal location (good or bad).
 	 * @param id - this is the id of the place (for creating {@link Exit} objects that go here).

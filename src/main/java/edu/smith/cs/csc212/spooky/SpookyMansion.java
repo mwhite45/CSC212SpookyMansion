@@ -35,7 +35,7 @@ public class SpookyMansion implements GameWorld {
 		entranceHall.addExit(new SecretExit("crypt", "secret passage"));
 		entranceHall.addItem("key");
 		entranceHall.addItem("carpet");
-		entranceHall.addExit(new LockedExit("crypt", "locked door"));
+		entranceHall.addExit(new LockedExit("crypt", "There is a locked door."));
 
 		String EMOJI_SKULL = "\uD83D\uDC80";
 		Place closet = insert(Place.create("closet", "On the wall is scratched a series of letters and a skull icon ("+EMOJI_SKULL+").\n"
