@@ -1,5 +1,6 @@
 package edu.smith.cs.csc212.spooky;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -85,12 +86,12 @@ public class Exit {
 		return false;
 	}
 	
-	public void search() {
-		//that's all.
-	}
-	
 	public boolean canOpen(List<String> stuff) {
 		return true;
+	}
+
+	public void search() {
+		// I'm not even a secret
 	}
 	
 }

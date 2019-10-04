@@ -17,6 +17,11 @@ public class Place {
 	/**
 	 * This is the identifier of the place.
 	 */
+	/**
+	 * This is a list of the items in a location
+	 */
+	private List<String> items;
+	
 	private String id;
 	/**
 	 * What to tell the user about this place.
@@ -34,6 +39,8 @@ public class Place {
 	 * description for counter 
 	 */
 	private int counter;
+	
+	
 	/**
 	 * Internal only constructor for Place. Use {@link #create(String, String)} or {@link #terminal(String, String)} instead.
 	 * @param id - the internal id of this place.
@@ -47,6 +54,7 @@ public class Place {
 		this.terminal = terminal;
 		this.visited = false;
 		this.counter = 0;
+		this.items = new ArrayList<>();
 	}
 	
 	/**
@@ -85,9 +93,7 @@ public class Place {
 	 */
 	public void search() {
 		for (Exit w: exits) {
-			if(w.isSecret()) {
-				((SecretExit)w).findSecretExit();
-			}
+			w.search();
 		}
 	}
 
@@ -95,13 +101,20 @@ public class Place {
 	 * Get a view of the exits from this Place, for navigation.
 	 * @return all the exits from this place.
 	 */
+	//change to return exits that are not secret.
 	public List<Exit> getVisibleExits() {
 		List<Exit> visible = new ArrayList<>();
 		for (Exit e : this.exits) {
+			if (!e.isSecret()) {
 			visible.add(e);
+			}
 		}
 		return visible;
 	}
+	//method that return list of items in a location
+	public List<String> getItems() {
+			return this.items;
+		}
 	
 	/**
 	 * This is a terminal location (good or bad).
@@ -157,5 +170,17 @@ public class Place {
 		
 		
 	}
+	
+	public void addItem(String item) {
+		items.add(item);
+	}
+	
+	public void removeItem(String item) {
+		items.clear();
+	}
+	
+	
+	
+	
 	
 }

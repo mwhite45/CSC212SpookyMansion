@@ -1,5 +1,6 @@
 package edu.smith.cs.csc212.spooky;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,6 +23,8 @@ public class InteractiveFiction {
 		// This is the current location of the player (initialize as start).
 		// Maybe we'll expand this to a Player object.
 		String place = game.getStart();
+		List<String> playerItems = new ArrayList<>();
+		
 
 		// Play the game until quitting.
 		// This is too hard to express here, so we just use an infinite loop with breaks.
@@ -32,7 +35,11 @@ public class InteractiveFiction {
 			System.out.println();
 			System.out.println("... --- ...");
 			System.out.println(here.getDescription());
+			
 
+			//print out stuff 
+			System.out.println("Items in this location: " + here.getItems());
+			
 			// Game over after print!
 			if (here.isTerminalState()) {
 				break;
@@ -40,7 +47,14 @@ public class InteractiveFiction {
 			
 			//call visit() method
 			here.visit();
+			
+			//debugging print statement
 			System.out.println("Value for here.visited(): " + here.visited);
+			
+			if (here.visited == true) {
+				System.out.println("This place feels familiar...");
+			}
+			
 
 			// Show a user the ways out of this place.
 			List<Exit> exits = here.getVisibleExits();
@@ -70,7 +84,7 @@ public class InteractiveFiction {
 			}
 			if (action.equals("help")) {
 				System.out.println("Please input the # of the room or quit game [quit/escape/q]");
-					break;
+					continue;
 			}
 			
 			if (action.equals("search")) {
@@ -78,6 +92,33 @@ public class InteractiveFiction {
 				continue;
 					
 				}
+			if (action.equals("take")) {
+				
+				if (here.getItems().isEmpty()) {
+					System.out.println("Sorry, there are no items in this location.");
+					continue;
+				
+				} else {
+					
+					System.out.println("You've taken the items.");
+					for (String i : here.getItems()) {
+						//System.out.println(i);
+						playerItems.add(i);
+				}
+					
+				here.getItems().clear();
+			}
+			}
+			
+			if (action.equals("stuff")) {
+				if (!playerItems.isEmpty()) {
+					System.out.println(playerItems);
+				} else {
+					System.out.println("You have nothing.");
+				}
+				
+			}
+			
 
 			// From here on out, what they typed better be a number!
 			Integer exitNum = null;
